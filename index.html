@@ -4,238 +4,222 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>夢時代表攻計算機2.0「鬼氏集團出品」</title>
-</head>
-      <style>
+    <style>
         body {
             background-color: #FFEB3B; /* 米黃色 */
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 150vh;
-            margin: 10px 70px;
-             border: 10px solid #dcdcdc; /* 灰色邊框 */
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
         }
-       
+        .section {
+            text-align: center;
+        }
+        .section h2 {
+            font-size: 30px;
+        }
     </style>
+</head>
 <body>
-      <div class="section">
-   <div class="section" style="margin-top: 30px;">
-        <h2 id="rainbow-text" style="font-size: 30px;">夢時代表攻計算機</h2>
+  
+<div class="section">
+    <h2 id="rainbow-text">夢時代表攻計算機</h2>
 </div>
-       <div class="section">
-<label for="strength">現在的力量：</label>
+<div class="section">
+    <label for="strength">現在的力量：</label>
     <input type="text" id="strength" placeholder="現在的力量"><br>
     <label for="agility">現在的敏捷：</label>
     <input type="text" id="agility" placeholder="現在的敏捷"><br>
     <label for="intelligence">現在的智力：</label>
-    <input type="text" id="intelligence" placeholder="現在的智力"><br>      
+    <input type="text" id="intelligence" placeholder="現在的智力"><br>
     <label for="luck">現在的幸運：</label>
     <input type="text" id="luck" placeholder="現在的幸運"><br>
     <label for="attack">現在的表功：</label>
     <input type="text" id="attack" placeholder="現在的表功"><br>
-  
-
-        
-           <select id="weapon">
+    <select id="weapon">
         <option value="1">單手劍</option>
         <option value="2">單手斧/棍/短杖/長杖 (砍)</option>
-       <option value="3">單手斧/棍/短杖/長杖 (戳)</option>
-<option value="4">雙手劍</option>
-<option value="5">雙手斧/棍 (砍)</option>
-<option value="6">雙手斧/棍 (戳)</option>
-<option value="7">槍 (砍)</option>
-<option value="8">槍 (戳)</option>
-<option value="9">矛 (砍)</option>
-<option value="10">矛 (戳)</option>
-<option value="11">短劍 (非盜賊)</option>
-<option value="12">短劍/飛鏢 (盜賊)</option>
-<option value="13">弓</option>
-<option value="14">弩</option>
-<option value="15">指虎</option>
-<option value="16">火槍</option>
+        <option value="3">單手斧/棍/短杖/長杖 (戳)</option>
+        <option value="4">雙手劍</option>
+        <option value="5">雙手斧/棍 (砍)</option>
+        <option value="6">雙手斧/棍 (戳)</option>
+        <option value="7">槍 (砍)</option>
+        <option value="8">槍 (戳)</option>
+        <option value="9">矛 (砍)</option>
+        <option value="10">矛 (戳)</option>
+        <option value="11">短劍 (非盜賊)</option>
+        <option value="12">短劍/飛鏢 (盜賊)</option>
+        <option value="13">弓</option>
+        <option value="14">弩</option>
+        <option value="15">指虎</option>
+        <option value="16">火槍</option>
     </select><br>
+</div>
+<div class="section">
     <button onclick="calculate()">鬼氏集團為您一次試算</button>
+</div>
+<div id="ratio"></div>
+<div id="ADI"></div>
+<div id="MI"></div>
+<div id="SI"></div>
 <div id="ad"></div>
-           <div id="ADI"></div>
-           <div id="MI"></div>
-           <div id="SI"></div>
-            <div id="ratio"></div
-                                    <div id="result1"></div>
-               <div id="result2"></div>
-               <div id="result3"></div>
-               <div id="result4"></div>
-               <div id="result5"></div>
-               <div id="result6"></div>
- </div>
-  <script>
-        function calculate() {
-            var strength = parseInt(document.getElementById("strength").value) || 0;
-            var agility = parseInt(document.getElementById("agility").value) || 0;
-            var luck = parseInt(document.getElementById("luck").value) || 0;
-            var intelligence = parseInt(document.getElementById("intelligence").value) || 0;
-            var attack = parseInt(document.getElementById("attack").value) || 0;
-            var price = parseInt(document.getElementById("price").value) || 0;
-            var original = parseInt(document.getElementById("original").value) || 0;
-            var weapon = parseInt(document.getElementById("weapon").value);
-var ADI;var MI;var SI;
-            var ad;
+<script>
+var ADI, MI, SI, AD;
 
-            switch (weapon) {
-               case 1:
-    ad = (100 * attack - 0 - 0) / (4.0 * strength + agility);
-    ADI = ((100 * (ad + 1) - 0 - 0) / (4.0 * strength + agility)) - attack;
-    MI = ((100 * ad - 0 - 0) / (4.0 * (strength + 1) + agility)) - attack;
-    SI = ((100 * ad - 0 - 0) / (4.0 * strength + agility + 1)) - attack;
-    break;
-case 2:
-    ad = (100 * attack - 0 - 0) / (4.4 * strength + agility);
-    ADI = ((100 * (ad + 1) - 0 - 0) / (4.4 * strength + agility)) - attack;
-    MI = ((100 * ad - 0 - 0) / (4.4 * (strength + 1) + agility)) - attack;
-    SI = ((100 * ad - 0 - 0) / (4.4 * strength + agility + 1)) - attack;
-    break;
-case 3:
-    ad = (100 * attack - 0 - 0) / (3.2 * strength + agility);
-    ADI = ((100 * (ad + 1) - 0 - 0) / (3.2 * strength + agility)) - attack;
-    MI = ((100 * ad - 0 - 0) / (3.2 * (strength + 1) + agility)) - attack;
-    SI = ((100 * ad - 0 - 0) / (3.2 * strength + agility + 1)) - attack;
-    break;
-case 4:
-    ad = (100 * attack - 0 - 0) / (4.6 * strength + agility);
-    ADI = ((100 * (ad + 1) - 0 - 0) / (4.6 * strength + agility)) - attack;
-    MI = ((100 * ad - 0 - 0) / (4.6 * (strength + 1) + agility)) - attack;
-    SI = ((100 * ad - 0 - 0) / (4.6 * strength + agility + 1)) - attack;
-    break;
-case 5:
-    ad = (100 * attack - 0 - 0) / (4.8 * strength + agility);
-    ADI = ((100 * (ad + 1) - 0 - 0) / (4.8 * strength + agility)) - attack;
-    MI = ((100 * ad - 0 - 0) / (4.8 * (strength + 1) + agility)) - attack;
-    SI = ((100 * ad - 0 - 0) / (4.8 * strength + agility + 1)) - attack;
-    break;
-case 6:
-    ad = (100 * attack - 0 - 0) / (3.4 * strength + agility);
-    ADI = ((100 * (ad + 1) - 0 - 0) / (3.4 * strength + agility)) - attack;
-    MI = ((100 * ad - 0 - 0) / (3.4 * (strength + 1) + agility)) - attack;
-    SI = ((100 * ad - 0 - 0) / (3.4 * strength + agility + 1)) - attack;
-    break;
-case 7:
-    ad = (100 * attack - 0 - 0) / (3.0 * strength + agility);
-    ADI = ((100 * (ad + 1) - 0 - 0) / (3.0 * strength + agility)) - attack;
-    MI = ((100 * ad - 0 - 0) / (3.0 * (strength + 1) + agility)) - attack;
-    SI = ((100 * ad - 0 - 0) / (3.0 * strength + agility + 1)) - attack;
-    break;
-case 8:
-    ad = (100 * attack - 0 - 0) / (5.0 * strength + agility);
-    ADI = ((100 * (ad + 1) - 0 - 0) / (5.0 * strength + agility)) - attack;
-    MI = ((100 * ad - 0 - 0) / (5.0 * (strength + 1) + agility)) - attack;
-    SI = ((100 * ad - 0 - 0) / (5.0 * strength + agility + 1)) - attack;
-    break;
-case 9:
-    ad = (100 * attack - 0 - 0) / (5.0 * strength + agility);
-    ADI = ((100 * (ad + 1) - 0 - 0) / (5.0 * strength + agility)) - attack;
-    MI = ((100 * ad - 0 - 0) / (5.0 * (strength + 1) + agility)) - attack;
-    SI = ((100 * ad - 0 - 0) / (5.0 * strength + agility + 1)) - attack;
-    break;
-case 10:
-    ad = (100 * attack - 0 - 0) / (3.0 * strength + agility);
-    ADI = ((100 * (ad + 1) - 0 - 0) / (3.0 * strength + agility)) - attack;
-    MI = ((100 * ad - 0 - 0) / (3.0 * (strength + 1) + agility)) - attack;
-    SI = ((100 * ad - 0 - 0) / (3.0 * strength + agility + 1)) - attack;
-    break;
-case 11:
-    ad = (100 * attack - 0 - 0) / (4.0 * strength + agility);
-    ADI = ((100 * (ad + 1) - 0 - 0) / (4.0 * strength + agility)) - attack;
-    MI = ((100 * ad - 0 - 0) / (4.0 * (strength + 1) + agility)) - attack;
-    SI = ((100 * ad - 0 - 0) / (4.0 * strength + agility + 1)) - attack;
-    break;
-case 12:
-    ad = (100 * attack - 0 - 0) / (strength + agility + luck * 3.6);
-    ADI = ((100 * (ad + 1) - 0 - 0) / (strength + agility + luck * 3.6)) - attack;
-    MI = ((100 * ad - 0 - 0) / (strength + agility + （luck +1）* 3.6)) - attack;
-    SI = ((100 * ad - 0 - 0) / (strength + agility + 1 + luck * 3.6)) - attack;
-    break;
-case 13:
-    ad = (100 * attack - 0 - 0) / (strength + agility * 3.4);
-    ADI = ((100 * (ad + 1) - 0 - 0) / (strength + agility * 3.4)) - attack;
-    MI = ((100 * ad - 0 - 0) / (strength + （1+ agility） * 3.4)) - attack;
-    SI = ((100 * ad - 0 - 0) / (strength + 1 + agility * 3.4)) - attack;
-    break;
-case 14:
-    ad = (100 * attack - 0 - 0) / (strength + agility * 3.6);
-    ADI = ((100 * (ad + 1) - 0 - 0) / (strength + agility * 3.6)) - attack;
-    MI = ((100 * ad - 0 - 0) / (strength + （1 + agility ）* 3.6)) - attack;
-    SI = ((100 * ad - 0 - 0) / (strength + 1 + agility * 3.6)) - attack;
-    break;
-case 15:
-    ad = (100 * attack - 0 - 0) / (4.8 * strength + agility);
-    ADI = ((100 * (ad + 1) - 0 - 0) / (4.8 * strength + agility)) - attack;
-    MI = ((100 * ad - 0 - 0) / (4.8 * (strength + 1) + agility)) - attack;
-    SI = ((100 * ad - 0 - 0) / (4.8 * strength + agility + 1)) - attack;
-    break;
-case 16:
-    ad = (100 * attack - 0 - 0) / (strength + agility * 3.6);
-    ADI = ((100 * (ad + 1) - 0 - 0) / (strength + agility * 3.6)) - attack;
-    MI = ((100 * ad - 0 - 0) / (strength + （1 + agility ）* 3.6)) - attack;
-    SI = ((100 * ad - 0 - 0) / (strength + 1 + agility * 3.6)) - attack;
-    break;
-default:
-result = 0;
-break;
-}
+function calculate() {
+    var strength = parseInt(document.getElementById("strength").value) || 0;
+    var agility = parseInt(document.getElementById("agility").value) || 0;
+    var luck = parseInt(document.getElementById("luck").value) || 0;
+    var intelligence = parseInt(document.getElementById("intelligence").value) || 0;
+    var attack = parseInt(document.getElementById("attack").value) || 0;
+    var weapon = parseInt(document.getElementById("weapon").value);
 
-        document.getElementById("result1").innerHTML = "你目前的總物攻：" + ad;
-document.getElementById("result2").innerHTML = "每1物攻增加表功：" + ADI;
-            document.getElementById("result3").innerHTML = "每1主屬增加表功：" + MI;
-            document.getElementById("result4").innerHTML = "每1副屬增加表功：" + SI;
-document.getElementById("result5").innerHTML = "每1物攻=" + ADI/MI+"主屬"+ADI/SI+"副屬"  ;
-     
-        document.getElementById("ratio").innerHTML = "接下來可以算下面了"
+    switch (weapon) {
+        case 1:
+            ad = (100 * attack - 0 - 0) / (4.0 * strength + agility);
+            ADI = ((ad + 1) / 100 * (4.0 * strength + agility)) - attack;
+            MI = (ad / 100 * (4.0 * (strength + 1) + agility)) - attack;
+            SI = (ad / 100 * (4.0 * strength + agility + 1)) - attack;
+            break;
+        case 2:
+            ad = (100 * attack - 0 - 0) / (4.4 * strength + agility);
+            ADI = ((ad + 1) / 100  *(4.4 * strength + agility)) - attack;
+            MI = (ad / 100 * (4.4 * (strength + 1) + agility)) - attack;
+            SI = (ad / 100 * (4.4 * strength + agility + 1)) - attack;
+            break;
+        case 3:
+            ad = (100 * attack - 0 - 0) / (3.2 * strength + agility);
+            ADI = ((ad + 1) / 100  *(3.2 * strength + agility)) - attack;
+            MI = (ad / 100 * (3.2 * (strength + 1) + agility)) - attack;
+            SI = (ad / 100 * (3.2 * strength + agility + 1)) - attack;
+            break;
+        case 4:
+            ad = (100 * attack - 0 - 0) / (4.6 * strength + agility);
+            ADI = ((ad + 1) / 100 * (4.6 * strength + agility)) - attack;
+            MI = (ad / 100 * (4.6 * (strength + 1) + agility)) - attack;
+            SI = (ad / 100 * (4.6 * strength + agility + 1)) - attack;
+            break;
+        case 5:
+            ad = (100 * attack - 0 - 0) / (4.8 * strength + agility);
+            ADI = ((ad + 1) / 100 * (4.8 * strength + agility)) - attack;
+            MI = (ad / 100 * (4.8 * (strength + 1) + agility)) - attack;
+            SI = (ad / 100 * (4.8 * strength + agility + 1)) - attack;
+            break;
+        case 6:
+            ad = (100 * attack - 0 - 0) / (3.4 * strength + agility);
+            ADI = ((ad + 1) / 100  *(3.4 * strength + agility)) - attack;
+            MI = (ad / 100 * (3.4 * (strength + 1) + agility)) - attack;
+            SI = (ad / 100 * (3.4 * strength + agility + 1)) - attack;
+            break;
+        case 7:
+            ad = (100 * attack - 0 - 0) / (3.0 * strength + agility);
+            ADI = ((ad + 1) / 100 *(3.0 * strength + agility)) - attack;
+            MI = (ad / 100 * (3.0 * (strength + 1) + agility)) - attack;
+            SI = (ad / 100 * (3.0 * strength + agility + 1)) - attack;
+            break;
+        case 8:
+            ad = (100 * attack - 0 - 0) / (5.0 * strength + agility);
+            ADI = ((ad + 1) / 100 *(5.0 * strength + agility)) - attack;
+            MI = (ad / 100 * (5.0 * (strength + 1) + agility)) - attack;
+            SI = (ad / 100 * (5.0 * strength + agility + 1)) - attack;
+            break;
+        case 9:
+            ad = (100 * attack - 0 - 0) / (5.0 * strength + agility);
+            ADI = ((ad + 1) / 100 * (5.0 * strength + agility)) - attack;
+            MI = (ad / 100 * (5.0 * (strength + 1) + agility)) - attack;
+            SI = (ad / 100 * (5.0 * strength + agility + 1)) - attack;
+            break;
+        case 10:
+            ad = (100 * attack - 0 - 0) / (3.0 * strength + agility);
+            ADI = ((ad + 1) / 100 *(3.0 * strength + agility)) - attack;
+            MI = (ad / 100 * (3.0 * (strength + 1) + agility)) - attack;
+            SI = (ad / 100 * (3.0 * strength + agility + 1)) - attack;
+            break;
+        case 11:
+            ad = (100 * attack - 0 - 0) / (4.0 * strength + agility);
+            ADI = ((ad + 1) / 100* (4.0 * strength + agility)) - attack;
+            MI = (ad / 100 * (4.0 * (strength + 1) + agility)) - attack;
+            SI = (ad / 100 * (4.0 * strength + agility + 1)) - attack;
+            break;
+        case 12:
+            ad = (100 * attack - 0 - 0) / (strength + agility + luck * 3.6);
+            ADI = ((ad + 1) / 100 *(strength + agility + luck * 3.6)) - attack;
+            MI = (ad / 100 * (strength + agility + (luck + 1) * 3.6)) - attack;
+            SI = (ad / 100 * (strength + agility + 1 + luck * 3.6)) - attack;
+            break;
+        case 13:
+            ad = (100 * attack - 0 - 0) / (strength + agility * 3.4);
+            ADI = ((ad + 1) / 100  *(strength + agility * 3.4)) - attack;
+            MI = (ad / 100 * (strength + (1 + agility) * 3.4)) - attack;
+            SI = (ad / 100 * (strength + 1 + agility * 3.4)) - attack;
+            break;
+        case 14:
+            ad = (100 * attack - 0 - 0) / (strength + agility * 3.6);
+            ADI = ((ad + 1) / 100 *(strength + agility * 3.6)) - attack;
+            MI = (ad / 100 * (strength + (1 + agility) * 3.6)) - attack;
+            SI = (ad / 100 * (strength + 1 + agility * 3.6)) - attack;
+            break;
+        case 15:
+            ad = (100 * attack - 0 - 0) / (4.8 * strength + agility);
+            ADI = ((ad + 1) / 100 *(4.8 * strength + agility)) - attack;
+            MI = (ad / 100 * (4.8 * (strength + 1) + agility)) - attack;
+            SI = (ad / 100 * (4.8 * strength + agility + 1)) - attack;
+            break;
+        case 16:
+            ad = (100 * attack - 0 - 0) / (strength + agility * 3.6);
+            ADI = ((ad + 1) / 100  *(strength + agility * 3.6)) - attack;
+            MI = (ad / 100 * (strength + (1 + agility) * 3.6)) - attack;
+            SI = (ad / 100 * (strength + 1 + agility * 3.6)) - attack;
+            break;
+        default:
+            ad = 0;
+            ADI = 0;
+            MI = 0;
+            SI = 0;
+            break;
     }
+
+    document.getElementById("ratio").innerHTML = "你目前的總物攻：" + ad + "<br>" +
+        "每1物攻增加表功：" + ADI + "<br>" +
+        "每1主屬增加表功：" + MI + "<br>" +
+        "每1副屬增加表功：" + SI + "<br>" +
+        "每1物攻=" + (ADI / MI) + "主屬 " + (ADI / SI) + "副屬" + "<br>" +
+        "接下來可以算下面了";
+}
 </script>
-          
-     <div class="section">
+<div class="section">
     <label for="NM">新裝備主屬：</label>
     <input type="text" id="NM" placeholder="新裝備主屬"><br>
     <label for="NS">新裝備副屬：</label>
-    <input type="text" id="NS" placeholder="盜賊副屬是力+敏喔"><br>
+    <input type="text" id="NS" placeholder="新裝備副屬(盜賊是力+敏)"><br>
     <label for="NAD">新裝備物理攻擊：</label>
     <input type="text" id="NAD" placeholder="新裝備物理攻擊"><br>
     <label for="price">價錢：</label>
-    <input type="text" id="price" placeholder="價錢"><br>
+    <input type="text" id="price" name="price" placeholder="價錢"><br>
     <button onclick="ADSHOW()">鬼氏集團為您再度試算</button><br>
-    <div id="result7"></div>
-             <div id="result8"></div>
+    <div id="result"></div>
 </div>
-
 <script>
-    function ADSHOW() {
-        var NM = document.getElementById("NM").value;
-        var NS = document.getElementById("NS").value;
-        var NAD = document.getElementById("NAD").value;
-        var price = document.getElementById("price").value;
-        var add = NM *MI+ NS*SI + NAD*ADI;
-        document.getElementById("result7").innerHTML = "這就是新裝備帶來的表功 " + add;
-        document.getElementById("result8").innerHTML = "這就是每一元帶來的表功 " + add/price;
-    }
+function ADSHOW() {
+    var NM = parseInt(document.getElementById("NM").value);
+    var NS = parseInt(document.getElementById("NS").value);
+    var NAD = parseInt(document.getElementById("NAD").value);
+    var price = parseInt(document.getElementById("price").value);
+    var add = NM * MI + NS * SI + NAD * AD;
+    document.getElementById("result").innerHTML = "這就是新裝備帶來的表功 " + add + "<br>" + "這就是每一元帶來的表功 " + (add / price);
+}
 </script>
-           
-      <span style="font-size: 20px;">
-           <h2>完整步驟(下方有教學影片) </h2></span>
-<span style="font-size: 10px;">
-<h2>1. 先輸入目前的能力值（乾表）。</h2>
-<h2>2. 隨便打一個攻擊，例如100,價錢打1。</h2>
-<h2>3. 得出的結果去對應乾表。如果不夠，就把攻擊往上加，找出你現在的全身攻擊。</h2>
-<h2>4. 把新裝備的數據計算一下與舊裝備的差距。</h2>
-<h2>5. 填上新的全部能力值，在原表攻內填寫原表攻，並填上新裝備的購買價錢。</h2>
-<h2>6. 按下計算，便會得到最正確的數字</h2>
-<h2> 　</h2>
-          </span>
-           <div style="text-align: center; position: relative; bottom: 30px;" class="gwd-div-v2ia">
-    <a href="https://www.dms113.com" style="color: blue; margin-right: 1em;">夢時代楓之谷官網</a>
- <h2> </h2>
-    <a href="https://discord.com/invite/3EacJSN" style="color: orange; margin-right: 1em;">夢時代DC論壇</a>
-    <a href="https://youtu.be/mmtayMwUPcI?si=NHRM6B2cAZ2lpj49;">教學影片</a>
-  </div>
-        </div>
- </div>
-
-</body></html>
+<span style="font-size: 20px;">
+    <h2>完整步驟(下方有教學影片) </h2>
+    <h2> 　</h2>
+    <div style="text-align: center; position: relative; bottom: 30px;" class="gwd-div-v2ia">
+        <a href="https://www.dms113.com" style="color: blue; margin-right: 1em;">夢時代楓之谷官網</a>
+        <h2> </h2>
+        <a href="https://discord.com/invite/3EacJSN" style="color: orange; margin-right: 1em;">夢時代DC論壇</a>
+        <a href="https://youtu.be/mmtayMwUPcI?si=NHRM6B2cAZ2lpj49;">教學影片</a>
+    </div>
+</span>
+</body>
+</html>
