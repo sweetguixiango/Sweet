@@ -25,7 +25,7 @@
 <body>
   
 <div class="section">
-    <h2 id="rainbow-text">夢時代表攻計算機</h2>
+    <h2 id="rainbow-text">夢時代表攻計算機2.0</h2>
 </div>
 <div class="section">
     <label for="strength">現在的力量：</label>
@@ -181,12 +181,13 @@ function calculate() {
             break;
     }
 
-    document.getElementById("ratio").innerHTML = "你目前的總物攻：" + ad + "<br>" +
-        "每1物攻增加表功：" + ADI + "<br>" +
-        "每1主屬增加表功：" + MI + "<br>" +
-        "每1副屬增加表功：" + SI + "<br>" +
-        "每1物攻=" + (ADI / MI) + "主屬 " + (ADI / SI) + "副屬" + "<br>" +
+   document.getElementById("ratio").innerHTML = "你目前的總物攻：" +  Math.round(ad) + "<br>" +
+        "每1物攻增加表功：" + Math.round(ADI) + "<br>" +
+        "每1主屬增加表功：" + Math.round(MI) + "<br>" +
+        "每1副屬增加表功：" + Math.round(SI) + "<br>" +
+        "每1物攻=" + Math.round(ADI / MI) + "主屬 " + Math.round(ADI / SI) + "副屬" + "<br>" +
         "接下來可以算下面了";
+
 }
 </script>
 <div class="section">
@@ -207,7 +208,10 @@ function ADSHOW() {
     var NS = parseInt(document.getElementById("NS").value);
     var NAD = parseInt(document.getElementById("NAD").value);
     var price = parseInt(document.getElementById("price").value);
-    var add = NM * MI + NS * SI + NAD * AD;
+ var 物攻增加表功 = Math.round(ADI);
+var 主屬增加表功 = Math.round(MI);
+var 副屬增加表功 = Math.round(SI);
+    var add = NM *主屬增加表功 + NS * 副屬增加表功 + NAD *物攻增加表功 ;
     document.getElementById("result").innerHTML = "這就是新裝備帶來的表功 " + add + "<br>" + "這就是每一元帶來的表功 " + (add / price);
 }
 </script>
